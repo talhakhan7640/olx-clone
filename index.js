@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import userRoute from './routes/authentication.js'
-import productRoute from './routes/product.js';
+import productRoute from './routes/product';
 
 dotenv.config();
 const app = express();
