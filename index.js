@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import userRoute from './routes/authentication.js'
+import productRoute from './routes/product.js';
 
 dotenv.config();
 const app = express();
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/', userRoute);
+app.use('/products/', productRoute)
 
 try {
    mongoose.connect(process.env.MONGO_URL, {
