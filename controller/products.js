@@ -5,12 +5,14 @@ export const sellProductController = async (request, response) => {
   const productDescription = request.body.productDescription;
   const productPrice = request.body.productPrice;
   const productCategory = request.body.productCategory;
+  const productImages = request.body.productImages;
 
   var product = productModel({
     productName: productName,
     productDescription: productDescription,
     productPrice: productPrice,
     productCategory: productCategory,
+    productImages: productImages,
   });
 
   product
@@ -28,3 +30,15 @@ export const sellProductController = async (request, response) => {
       });
     });
 };
+
+export const fetchProductsController = async (request, response) => {
+   const products = await productModel.find();
+
+  if(products){
+    response.send(products)
+  } else {
+    response.status(404).send({
+      message: "There no no products",
+    })
+  }
+}
