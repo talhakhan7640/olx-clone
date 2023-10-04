@@ -4,13 +4,14 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import userRoute from './routes/authentication.js'
-import productRoute from './routes/product';
+import productRoute from './routes/product.js';
 
 dotenv.config();
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(cors());
 
 // Curb Cores Error by adding a header here
 app.use((req, res, next) => {
