@@ -16,6 +16,10 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    productImages: {
+        type: Object,
+        required: true,
+    }
 });
 
 const productsDB = mongoose.connection.useDb("ProuctDatabase");
